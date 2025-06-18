@@ -12,7 +12,7 @@
 3. Ejecuta las migraciones:
   - En visual studio. Herramientas -> Administrador de Paquetes NuGet -> Consola del Administrador de Paquetes
 
-4. Ejecutar lo siguiente en la consola:
+  - (Ejecutar lo siguiente en la consola del administrador de paquetes)
   - 4.1 Add-Migration "Migracion Inicial" 
   - (una vez terminado el primer comando)
   - 4.2 update-database
