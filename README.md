@@ -10,7 +10,7 @@
   - 2.5 en appsetting.json poner la cadena de conexión como valor de "DefaultConnectionString" : "aqui"
 
 3. Ejecuta las migraciones:
-   En visual studio. Herramientas -> Administrador de Paquetes NuGet -> Consola del Administrador de Paquetes
+  - En visual studio. Herramientas -> Administrador de Paquetes NuGet -> Consola del Administrador de Paquetes
 
 4. Ejecutar lo siguiente en la consola:
   - 4.1 Add-Migration "Migracion Inicial" 
