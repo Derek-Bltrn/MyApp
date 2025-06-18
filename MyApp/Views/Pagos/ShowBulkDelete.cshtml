@@ -1,0 +1,41 @@
+﻿@model List<MyApp.Models.Pago>
+
+@{
+    ViewData["Title"] = "Confirmar eliminación";
+}
+
+<h3>¿Estás seguro que deseas eliminar los siguientes pagos?</h3>
+
+<form asp-action="BulkDeleteConfirmed" method="post">
+    @foreach (var pago in Model)
+    {
+        <input type="hidden" name="ids" value="@pago.Id" />
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Destinatario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pago in Model)
+            {
+                <tr>
+                    <td>@pago.Nombre</td>
+                    <td>@pago.Monto.ToString("C")</td>
+                    <td>@pago.Fecha.ToShortDateString()</td>
+                    <td>@pago.Descripcion</td>
+                    <td>@pago.Destinatario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="BulkDelete" class="btn btn-secondary">Cancelar</a>
+</form>

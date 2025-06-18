@@ -1,0 +1,42 @@
+﻿@{
+}
+@model List<MyApp.Models.Pago>
+
+@{
+    ViewData["Title"] = "Eliminar múltiples pagos";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<form asp-action="ShowBulkDelete" method="post">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nombre</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Destinatario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pago in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="ids" value="@pago.Id" />
+                    </td>
+                    <td>@pago.Nombre</td>
+                    <td>@pago.Monto.ToString("C")</td>
+                    <td>@pago.Fecha.ToShortDateString()</td>
+                    <td>@pago.Descripcion</td>
+                    <td>@pago.Destinatario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-danger">Eliminar seleccionados</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

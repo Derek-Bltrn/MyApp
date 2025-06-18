@@ -1,0 +1,21 @@
+﻿@model MyApp.Models.Pago
+
+@{
+    ViewData["Title"] = "Eliminar Pago";
+}
+
+<h3>¿Estás seguro que deseas eliminar este pago?</h3>
+
+<div class="mb-3">
+    <strong>Nombre:</strong> @Model.Nombre <br />
+    <strong>Monto:</strong> @Model.Monto.ToString("N2") $ <br />
+    <strong>Fecha:</strong> @Model.Fecha.ToShortDateString() <br />
+    <strong>Descripción:</strong> @Model.Descripcion <br />
+    <strong>Destinatario:</strong> @Model.Destinatario
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
